@@ -1,0 +1,409 @@
+:root {
+  --red: #e3350d;
+  --yellow: #ffcb05;
+  --blue: #3b4cca;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  background: #0a0a12;
+  background-image:
+    radial-gradient(ellipse at 50% 65%, rgba(180, 20, 5, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 90%, rgba(59, 76, 202, 0.12) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 10%, rgba(59, 76, 202, 0.09) 0%, transparent 40%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Nunito', sans-serif;
+  position: fixed;
+  inset: 0;
+}
+
+.page-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pikachu-wrap {
+  position: relative;
+  z-index: 10;
+  margin-bottom: -8px;
+  animation: pikachuFloat 3s ease-in-out infinite;
+  filter: drop-shadow(0 14px 30px rgba(255, 203, 5, 0.5));
+}
+.pikachu-wrap img {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  display: block;
+}
+.pikachu-wrap.scared {
+  animation:
+    pikachuShake 0.5s ease-in-out,
+    pikachuFloat 3s ease-in-out 0.5s infinite;
+  filter: drop-shadow(0 14px 30px rgba(227, 53, 13, 0.7));
+}
+@keyframes pikachuFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+@keyframes pikachuShake {
+  0% {
+    transform: translateX(0);
+  }
+  15% {
+    transform: translateX(-8px) rotate(-5deg);
+  }
+  30% {
+    transform: translateX(8px) rotate(5deg);
+  }
+  45% {
+    transform: translateX(-6px) rotate(-3deg);
+  }
+  60% {
+    transform: translateX(6px) rotate(3deg);
+  }
+  75% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.card {
+  position: relative;
+  z-index: 5;
+  width: 390px;
+  background: rgba(18, 18, 30, 0.95);
+  border: 1.5px solid rgba(227, 53, 13, 0.4);
+  border-radius: 20px;
+  padding: 36px 42px 32px;
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 0 0 1px rgba(227, 53, 13, 0.08),
+    0 0 55px rgba(200, 30, 5, 0.22),
+    0 30px 70px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  animation: cardIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: box-shadow 0.3s;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 26px;
+}
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+.pokeball-sm {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #e3350d 50%, #efefef 50%);
+  border: 2.5px solid #333;
+  position: relative;
+  flex-shrink: 0;
+}
+.pokeball-sm::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #333;
+  transform: translateY(-50%);
+}
+.pokeball-sm::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #333;
+}
+.header h1 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.25rem;
+  color: var(--yellow);
+  text-shadow:
+    2px 2px 0 rgba(180, 130, 0, 0.6),
+    0 0 22px rgba(255, 203, 5, 0.3);
+  letter-spacing: 3px;
+}
+.header p {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.86rem;
+  letter-spacing: 1px;
+}
+
+/* ── FORM ── */
+form {
+  display: block;
+}
+
+form label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 7px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-top: 18px;
+}
+form label:first-child {
+  margin-top: 0;
+}
+
+form input {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  outline: none;
+  transition: all 0.25s;
+}
+form input::placeholder {
+  color: rgba(255, 255, 255, 0.18);
+}
+form input:focus {
+  border-color: var(--red);
+  background: rgba(227, 53, 13, 0.05);
+  box-shadow: 0 0 0 3px rgba(227, 53, 13, 0.13);
+  color: #fff;
+}
+form input.input-error {
+  border-color: #e3350d !important;
+  background: rgba(227, 53, 13, 0.08) !important;
+  box-shadow: 0 0 0 3px rgba(227, 53, 13, 0.2) !important;
+  color: #fff;
+  animation: inputShake 0.4s ease-in-out;
+}
+@keyframes inputShake {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+form button {
+  margin-top: 24px;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #e8350d 0%, #bf2808 100%);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.15s,
+    box-shadow 0.2s;
+  box-shadow:
+    0 4px 22px rgba(227, 53, 13, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(227, 53, 13, 0.65);
+}
+form button:active {
+  transform: translateY(1px);
+}
+.btn-ball {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #fff 50%, #ddd 50%);
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+  position: relative;
+}
+.btn-ball::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: rgba(0, 0, 0, 0.2);
+  transform: translateY(-50%);
+}
+.btn-ball::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid rgba(0, 0, 0, 0.2);
+}
+.btn-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  animation: shine 2.5s ease-in-out infinite;
+}
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  35% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+.footer a {
+  color: var(--yellow);
+  font-weight: 900;
+  text-decoration: none;
+  transition: text-shadow 0.2s;
+}
+.footer a:hover {
+  text-shadow: 0 0 12px rgba(255, 203, 5, 0.7);
+}
+.bottom-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.bdot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.bdot-r {
+  background: #e3350d;
+}
+.bdot-y {
+  background: #ffcb05;
+}
+.bdot-b {
+  background: #3b4cca;
+}
+.bdot-dr {
+  background: #7a1a00;
+}
+
+.field-error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 7px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #ff6b47;
+  letter-spacing: 0.5px;
+}
+.err-ball {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+}
+.err-ball::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: #e3350d;
+}
+.err-ball::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: #fff;
+}

@@ -1,0 +1,82 @@
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+  background: #0a0a12;
+}
+
+body {
+  height: 100%;
+  overflow: hidden;
+  background: #0a0a12;
+  font-family: 'Nunito', sans-serif;
+  color: #fff;
+}
+
+/* ── Host del componente ── */
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: #0a0a12;
+  background-image:
+    radial-gradient(ellipse at 50% 30%, rgba(180, 20, 5, 0.13) 0%, transparent 55%),
+    radial-gradient(ellipse at 10% 80%, rgba(59, 76, 202, 0.1) 0%, transparent 45%),
+    radial-gradient(ellipse at 90% 70%, rgba(59, 76, 202, 0.08) 0%, transparent 40%);
+  overflow: hidden;
+  position: fixed;
+  inset: 0;
+}
+
+/* ── Layout ── */
+.main {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 32px 40px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(227, 53, 13, 0.3) transparent;
+}
+.content::-webkit-scrollbar {
+  width: 5px;
+}
+.content::-webkit-scrollbar-thumb {
+  background: rgba(227, 53, 13, 0.3);
+  border-radius: 10px;
+}
+
+/* ── Cabecera de sección (compartida por todas) ── */
+.section-header {
+  margin-bottom: 28px;
+}
+
+.section-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.85rem;
+  color: #ffcb05;
+  text-shadow: 1px 1px 0 rgba(180, 130, 0, 0.5);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.section-sub {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+}

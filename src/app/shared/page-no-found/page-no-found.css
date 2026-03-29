@@ -1,0 +1,487 @@
+:root {
+  --red: #e3350d;
+  --yellow: #ffcb05;
+  --blue: #3b4cca;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  background: #0a0a12;
+  background-image:
+    radial-gradient(ellipse at 50% 65%, rgba(180, 20, 5, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 90%, rgba(59, 76, 202, 0.12) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 10%, rgba(59, 76, 202, 0.09) 0%, transparent 40%);
+  font-family: 'Nunito', sans-serif;
+}
+
+/* ── Pokeballs decorativas ── */
+.pb-deco {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  overflow: hidden;
+}
+.pb-deco .half-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: rgba(200, 30, 10, 0.28);
+}
+.pb-deco .half-bot {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: rgba(230, 230, 230, 0.14);
+}
+.pb-deco .band {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 7%;
+  background: rgba(20, 20, 20, 0.55);
+  transform: translateY(-50%);
+  z-index: 2;
+}
+.pb-deco .center-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16%;
+  height: 16%;
+  border-radius: 50%;
+  background: rgba(80, 80, 80, 0.4);
+  border: 3px solid rgba(20, 20, 20, 0.4);
+  z-index: 3;
+}
+.pb-deco .center-btn::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: rgba(160, 160, 160, 0.3);
+}
+.pb1 {
+  width: 210px;
+  height: 210px;
+  top: -50px;
+  left: -55px;
+}
+.pb2 {
+  width: 300px;
+  height: 300px;
+  bottom: -90px;
+  right: -70px;
+}
+.pb3 {
+  width: 160px;
+  height: 160px;
+  top: 28%;
+  right: -50px;
+}
+
+/* ── Partículas ── */
+.particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.dot {
+  position: absolute;
+  border-radius: 50%;
+  animation: floatDot ease-in-out infinite;
+}
+.d1 {
+  width: 5px;
+  height: 5px;
+  background: var(--yellow);
+  top: 18%;
+  left: 7%;
+  animation-duration: 5s;
+}
+.d2 {
+  width: 4px;
+  height: 4px;
+  background: var(--blue);
+  top: 62%;
+  left: 11%;
+  animation-duration: 7s;
+  animation-delay: 1s;
+}
+.d3 {
+  width: 5px;
+  height: 5px;
+  background: var(--yellow);
+  top: 76%;
+  right: 18%;
+  animation-duration: 6s;
+  animation-delay: 2s;
+}
+.d4 {
+  width: 4px;
+  height: 4px;
+  background: var(--red);
+  top: 33%;
+  right: 9%;
+  animation-duration: 8s;
+  animation-delay: 0.5s;
+}
+.d5 {
+  width: 3px;
+  height: 3px;
+  background: var(--red);
+  top: 84%;
+  left: 38%;
+  animation-duration: 5.5s;
+  animation-delay: 1.5s;
+}
+@keyframes floatDot {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(-16px);
+    opacity: 0.8;
+  }
+}
+
+/* ── Layout ── */
+.page-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Pokeball grande giratoria ── */
+.pokeball-404 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: -18px;
+  z-index: 10;
+  animation: spin404 4s linear infinite;
+  box-shadow:
+    0 0 30px rgba(227, 53, 13, 0.4),
+    0 14px 30px rgba(0, 0, 0, 0.5);
+}
+.pokeball-404 .half-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: #e3350d;
+}
+.pokeball-404 .half-bot {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: #efefef;
+}
+.pokeball-404 .band {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 8%;
+  background: #222;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+.pokeball-404 .center-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 22%;
+  height: 22%;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #222;
+  z-index: 3;
+}
+.pokeball-404 .center-btn::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: rgba(200, 200, 200, 0.5);
+}
+
+@keyframes spin404 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Card ── */
+.card {
+  position: relative;
+  z-index: 5;
+  width: 390px;
+  background: rgba(18, 18, 30, 0.95);
+  border: 1.5px solid rgba(227, 53, 13, 0.4);
+  border-radius: 20px;
+  padding: 36px 42px 32px;
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 0 0 1px rgba(227, 53, 13, 0.08),
+    0 0 55px rgba(200, 30, 5, 0.22),
+    0 30px 70px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  animation: cardIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  text-align: center;
+}
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+.pokeball-sm {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #e3350d 50%, #efefef 50%);
+  border: 2.5px solid #333;
+  position: relative;
+  flex-shrink: 0;
+}
+.pokeball-sm::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #333;
+  transform: translateY(-50%);
+}
+.pokeball-sm::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #333;
+}
+
+.header h1 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.6rem;
+  color: var(--yellow);
+  text-shadow:
+    2px 2px 0 rgba(180, 130, 0, 0.6),
+    0 0 22px rgba(255, 203, 5, 0.3);
+  letter-spacing: 4px;
+}
+.header p {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.82rem;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+
+/* ── Cuerpo del 404 ── */
+.nf-body {
+  margin-bottom: 28px;
+}
+
+.nf-code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding: 10px 20px;
+  background: rgba(227, 53, 13, 0.08);
+  border: 1px solid rgba(227, 53, 13, 0.2);
+  border-radius: 10px;
+}
+.nf-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.45rem;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 3px;
+}
+.nf-val {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.55rem;
+  color: #ff6b47;
+  letter-spacing: 2px;
+}
+.nf-desc {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.3);
+  line-height: 1.8;
+}
+
+/* ── Botón volver ── */
+.btn-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #e8350d 0%, #bf2808 100%);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  transition:
+    transform 0.15s,
+    box-shadow 0.2s;
+  box-shadow:
+    0 4px 22px rgba(227, 53, 13, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  margin-bottom: 20px;
+}
+.btn-back:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(227, 53, 13, 0.65);
+}
+.btn-back:active {
+  transform: translateY(1px);
+}
+
+.btn-ball {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #fff 50%, #ddd 50%);
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+  position: relative;
+}
+.btn-ball::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: rgba(0, 0, 0, 0.2);
+  transform: translateY(-50%);
+}
+.btn-ball::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid rgba(0, 0, 0, 0.2);
+}
+
+.btn-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  animation: shine 2.5s ease-in-out infinite;
+}
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  35% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+/* ── Dots ── */
+.bottom-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.bdot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.bdot-r {
+  background: #e3350d;
+}
+.bdot-y {
+  background: #ffcb05;
+}
+.bdot-b {
+  background: #3b4cca;
+}
+.bdot-dr {
+  background: #7a1a00;
+}

@@ -1,0 +1,68 @@
+<div class="section-header">
+  <div class="section-title">🔥 POKÉMON POR TIPO</div>
+  <div class="section-sub">Selecciona un tipo para ver los Pokémon disponibles</div>
+</div>
+
+<!-- Grid de tipos -->
+<div class="type-grid">
+  <button class="type-btn tb-fire selected" (click)="fire()">
+    <span class="t-icon">🔥</span>
+    <span class="t-name">Fuego</span>
+  </button>
+  <button class="type-btn tb-water selected" (click)="water()">
+    <span class="t-icon">💧</span>
+    <span class="t-name">Agua</span>
+  </button>
+  <button class="type-btn tb-grass selected" (click)="grass()">
+    <span class="t-icon">🌿</span>
+    <span class="t-name">Planta</span>
+  </button>
+  <button class="type-btn tb-electric selected" (click)="electric()">
+    <span class="t-icon">⚡</span>
+    <span class="t-name">Eléctrico</span>
+  </button>
+  <button class="type-btn tb-psychic selected" (click)="psychic()">
+    <span class="t-icon">🔮</span>
+    <span class="t-name">Psíquico</span>
+  </button>
+  <button class="type-btn tb-rock selected" (click)="rock()">
+    <span class="t-icon">🪨</span>
+    <span class="t-name">Roca</span>
+  </button>
+</div>
+
+<!-- Estado vacío — sin tipo seleccionado -->
+
+@if (estado === Estados.Vacio) {
+  <div class="empty-state">
+    <div class="empty-icon">🗂️</div>
+    <div class="empty-text">ELIGE UN TIPO<br />PARA VER RESULTADOS</div>
+  </div>
+}
+
+<!-- Skeleton loading -->
+
+@if (estado === Estados.Cargando) {
+  <div class="poke-mini-grid">
+    @for (item of skeletons; track $index) {
+      <div class="poke-mini-skeleton">
+        <div class="skeleton sk-mini-img"></div>
+        <div class="skeleton sk-mini-name"></div>
+        <div class="skeleton sk-mini-num"></div>
+      </div>
+    }
+  </div>
+}
+
+<!-- Resultado: mini-cards de pokémon del tipo seleccionado -->
+@if (estado === Estados.Listo) {
+  <div class="poke-mini-grid">
+    @for (poke of pokemons; track poke.id) {
+      <div class="poke-mini">
+        <img [ngSrc]="poke.sprites.front_default" [alt]="poke.name" width="80" height="80" />
+        <div class="poke-mini-name">{{ poke.name }}</div>
+        <div class="poke-mini-num">#{{ poke.id }}</div>
+      </div>
+    }
+  </div>
+}

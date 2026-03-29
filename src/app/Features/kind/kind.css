@@ -1,0 +1,214 @@
+/* ── Grid de tipos ── */
+
+.section-header {
+  margin-bottom: 28px;
+}
+.section-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.85rem;
+  color: #ffcb05;
+  text-shadow:
+    1px 1px 0 rgba(180, 130, 0, 0.5),
+    0 0 14px rgba(255, 203, 5, 0.25);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.section-sub {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.type-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.type-btn {
+  padding: 14px 10px;
+  border-radius: 12px;
+  border: 1.5px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  background: transparent;
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.2s;
+}
+.type-btn:hover {
+  transform: translateY(-3px);
+}
+.type-btn.selected {
+  transform: translateY(-3px) scale(1.05);
+}
+
+.t-icon {
+  font-size: 1.4rem;
+}
+.t-name {
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.tb-fire {
+  border-color: rgba(255, 68, 0, 0.35);
+  color: #ff6b47;
+}
+.tb-fire.selected:hover {
+  background: rgba(255, 68, 0, 0.15);
+  box-shadow: 0 0 18px rgba(255, 68, 0, 0.25);
+}
+.tb-water {
+  border-color: rgba(59, 76, 202, 0.35);
+  color: #7c9eff;
+}
+.tb-water.selected:hover {
+  background: rgba(59, 76, 202, 0.15);
+  box-shadow: 0 0 18px rgba(59, 76, 202, 0.25);
+}
+.tb-grass {
+  border-color: rgba(30, 180, 60, 0.35);
+  color: #6dff8a;
+}
+.tb-grass.selected:hover {
+  background: rgba(30, 180, 60, 0.15);
+  box-shadow: 0 0 18px rgba(30, 180, 60, 0.25);
+}
+.tb-electric {
+  border-color: rgba(255, 203, 5, 0.35);
+  color: #ffd740;
+}
+.tb-electric.selected:hover {
+  background: rgba(255, 203, 5, 0.12);
+  box-shadow: 0 0 18px rgba(255, 203, 5, 0.2);
+}
+.tb-psychic {
+  border-color: rgba(200, 30, 150, 0.35);
+  color: #ff7de9;
+}
+.tb-psychic.selected:hover {
+  background: rgba(200, 30, 150, 0.12);
+  box-shadow: 0 0 18px rgba(200, 30, 150, 0.2);
+}
+.tb-rock {
+  border-color: rgba(180, 150, 90, 0.35);
+  color: #d4b87a;
+}
+.tb-rock.selected:hover {
+  background: rgba(180, 150, 90, 0.12);
+  box-shadow: 0 0 18px rgba(180, 150, 90, 0.2);
+}
+
+/* ── Mini grid resultados ── */
+.poke-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 14px;
+}
+
+.poke-mini {
+  background: rgba(18, 18, 32, 0.88);
+  border: 1.5px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.poke-mini:hover {
+  border-color: rgba(255, 203, 5, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+.poke-mini img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+.poke-mini-name {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.8);
+}
+.poke-mini-num {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+/* ── Skeleton mini ── */
+.poke-mini-skeleton {
+  background: rgba(18, 18, 32, 0.88);
+  border: 1.5px solid rgba(255, 255, 255, 0.04);
+  border-radius: 14px;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.sk-mini-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+.sk-mini-name {
+  width: 80px;
+  height: 12px;
+}
+.sk-mini-num {
+  width: 40px;
+  height: 10px;
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.09) 50%,
+    rgba(255, 255, 255, 0.05) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 8px;
+}
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ── Estado vacío ── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 24px;
+  gap: 14px;
+  text-align: center;
+}
+.empty-icon {
+  font-size: 3.5rem;
+  opacity: 0.25;
+}
+.empty-text {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.48rem;
+  color: rgba(255, 255, 255, 0.2);
+  line-height: 2;
+}

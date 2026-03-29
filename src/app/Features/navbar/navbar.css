@@ -1,0 +1,71 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 36px;
+  height: 64px;
+  background: rgba(12, 12, 22, 0.92);
+  border-bottom: 1.5px solid rgba(227, 53, 13, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-pokeball {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #e3350d 50%, #efefef 50%);
+  border: 2px solid #333;
+  position: relative;
+  flex-shrink: 0;
+  animation: navSpin 6s linear infinite;
+}
+.nav-pokeball::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #333;
+  transform: translateY(-50%);
+}
+.nav-pokeball::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #333;
+}
+@keyframes navSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.nav-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.75rem;
+  color: #ffcb05;
+  text-shadow:
+    1px 1px 0 rgba(180, 130, 0, 0.5),
+    0 0 14px rgba(255, 203, 5, 0.25);
+  letter-spacing: 2px;
+}

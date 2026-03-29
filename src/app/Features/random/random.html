@@ -1,0 +1,31 @@
+<div class="section-header">
+  <div class="section-title">🎲 POKÉMON ALEATORIO</div>
+  <div class="section-sub">Presiona el botón para descubrir un Pokémon al azar</div>
+</div>
+
+<div class="random-btn-wrap">
+  <button class="btn-random" (click)="descubrir()">
+    <div class="btn-shine"></div>
+    <span>⚡</span>
+    ¡DESCUBRIR POKÉMON!
+  </button>
+</div>
+
+@if (estados === Estados.Vacio) {
+  <div class="empty-state">
+    <div class="empty-icon">🎱</div>
+    <div class="empty-text">PRESIONA EL BOTÓN</div>
+  </div>
+}
+
+@if (estados === Estados.Cargando) {
+  <div class="random-result">
+    <app-skeleton />
+  </div>
+}
+
+@if (estados === Estados.Listo) {
+  <div class="random-result">
+    <app-pokem-card [Pokemon]="pokemon" />
+  </div>
+}

@@ -1,0 +1,319 @@
+.section-header {
+  margin-bottom: 28px;
+}
+.section-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.85rem;
+  color: #ffcb05;
+  text-shadow:
+    1px 1px 0 rgba(180, 130, 0, 0.5),
+    0 0 14px rgba(255, 203, 5, 0.25);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.section-sub {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+app-skeleton {
+  display: contents;
+}
+/* ── Área de resultado ── */
+.random-result {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ── Estado vacío ── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 24px;
+  gap: 14px;
+  text-align: center;
+}
+.empty-icon {
+  font-size: 3.5rem;
+  opacity: 0.25;
+}
+.empty-text {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.48rem;
+  color: rgba(255, 255, 255, 0.2);
+  line-height: 2;
+}
+.random-btn-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.btn-random {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 36px;
+  background: linear-gradient(135deg, #e8350d, #bf2808);
+  border: none;
+  border-radius: 14px;
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 4px 24px rgba(227, 53, 13, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition:
+    transform 0.15s,
+    box-shadow 0.2s;
+}
+.btn-random:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(227, 53, 13, 0.6);
+}
+.btn-random:active {
+  transform: translateY(1px);
+}
+
+.btn-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  animation: shine 2.5s ease-in-out infinite;
+}
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  35% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+/* dafa */
+.poke-card {
+  background: rgba(18, 18, 32, 0.9);
+  border: 1.5px solid rgba(255, 203, 5, 0.25);
+  border-radius: 20px;
+  padding: 28px 32px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  box-shadow:
+    0 0 40px rgba(255, 203, 5, 0.1),
+    0 20px 50px rgba(0, 0, 0, 0.5);
+  animation: cardPop 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes cardPop {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── Número ── */
+.poke-card-num {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.45rem;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 2px;
+}
+
+/* ── Imagen ── */
+.poke-img-wrap {
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.poke-img-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 203, 5, 0.08), transparent 70%);
+  animation: glowPulse 2s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.poke-img-wrap img {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 16px rgba(255, 203, 5, 0.3));
+  animation: pokeBob 3s ease-in-out infinite;
+}
+@keyframes pokeBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ── Nombre ── */
+.poke-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.9rem;
+  color: #fff;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+/* ── Tipos ── */
+.poke-types {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.type-badge {
+  font-size: 0.68rem;
+  font-weight: 900;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Nunito', sans-serif;
+}
+
+.type-fire {
+  background: rgba(255, 68, 0, 0.2);
+  color: #ff6b47;
+  border: 1px solid rgba(255, 68, 0, 0.3);
+}
+.type-water {
+  background: rgba(59, 76, 202, 0.2);
+  color: #7c9eff;
+  border: 1px solid rgba(59, 76, 202, 0.35);
+}
+.type-electric {
+  background: rgba(255, 203, 5, 0.15);
+  color: #ffd740;
+  border: 1px solid rgba(255, 203, 5, 0.3);
+}
+.type-grass {
+  background: rgba(30, 180, 60, 0.15);
+  color: #6dff8a;
+  border: 1px solid rgba(30, 180, 60, 0.3);
+}
+.type-psychic {
+  background: rgba(200, 30, 150, 0.15);
+  color: #ff7de9;
+  border: 1px solid rgba(200, 30, 150, 0.3);
+}
+.type-normal {
+  background: rgba(160, 160, 160, 0.15);
+  color: #ccc;
+  border: 1px solid rgba(160, 160, 160, 0.25);
+}
+.type-ghost {
+  background: rgba(80, 50, 150, 0.2);
+  color: #c4a0ff;
+  border: 1px solid rgba(80, 50, 150, 0.3);
+}
+.type-poison {
+  background: rgba(160, 40, 200, 0.15);
+  color: #e080ff;
+  border: 1px solid rgba(160, 40, 200, 0.25);
+}
+.type-flying {
+  background: rgba(100, 150, 255, 0.15);
+  color: #a0c4ff;
+  border: 1px solid rgba(100, 150, 255, 0.25);
+}
+.type-rock {
+  background: rgba(180, 150, 90, 0.15);
+  color: #d4b87a;
+  border: 1px solid rgba(180, 150, 90, 0.25);
+}
+.type-ground {
+  background: rgba(180, 120, 50, 0.15);
+  color: #d4a060;
+  border: 1px solid rgba(180, 120, 50, 0.25);
+}
+
+/* ── Stats ── */
+.poke-stats {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.stat-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 40px;
+  flex-shrink: 0;
+}
+.stat-bar-bg {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.stat-bar {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.8s ease;
+}
+.bar-hp {
+  background: linear-gradient(90deg, #ff6b6b, #e3350d);
+}
+.bar-atk {
+  background: linear-gradient(90deg, #ffaa47, #ff7700);
+}
+.bar-def {
+  background: linear-gradient(90deg, #7c9eff, #3b4cca);
+}
+.bar-spd {
+  background: linear-gradient(90deg, #6dff8a, #00b341);
+}
+.stat-val {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.5);
+  width: 26px;
+  text-align: right;
+}

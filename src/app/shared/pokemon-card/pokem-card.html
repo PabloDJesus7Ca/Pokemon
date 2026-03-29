@@ -1,0 +1,75 @@
+@if (Pokemon) {
+  <div class="poke-card">
+    <div class="poke-card-num">#{{ Pokemon.id }}</div>
+
+    <div class="poke-img-wrap">
+      <img
+        [ngSrc]="
+          Pokemon.sprites.other['official-artwork'].front_default || Pokemon.sprites.front_default
+        "
+        width="40"
+        height="40"
+        alt="Pokemon"
+      />
+    </div>
+
+    <div class="poke-name">{{ Pokemon.name }}</div>
+
+    <div class="poke-types">
+      <span class="type-badge type-electric">electric</span>
+    </div>
+
+    <div class="poke-stats">
+      <div class="stat-row">
+        <div class="poke-stats">
+          <div class="stat-row">
+            <span class="stat-label">HP</span>
+            <div class="stat-bar-bg">
+              <div
+                class="stat-bar bar-hp"
+                [style.width.%]="(Pokemon.stats[0].base_stat / 160) * 100"
+              ></div>
+            </div>
+            <span class="stat-val">{{ Pokemon.stats[0].base_stat }}</span>
+          </div>
+
+          <div class="stat-row">
+            <span class="stat-label">ATK</span>
+            <div class="stat-bar-bg">
+              <div
+                class="stat-bar bar-atk"
+                [style.width.%]="(Pokemon.stats[1].base_stat / 160) * 100"
+              ></div>
+            </div>
+            <span class="stat-val">{{ Pokemon.stats[1].base_stat }}</span>
+          </div>
+
+          <div class="stat-row">
+            <span class="stat-label">DEF</span>
+            <div class="stat-bar-bg">
+              <div
+                class="stat-bar bar-def"
+                [style.width.%]="(Pokemon.stats[2].base_stat / 160) * 100"
+              ></div>
+            </div>
+            <span class="stat-val">{{ Pokemon.stats[2].base_stat }}</span>
+          </div>
+
+          <div class="stat-row">
+            <span class="stat-label">VEL</span>
+            <div class="stat-bar-bg">
+              <div
+                class="stat-bar bar-spd"
+                [style.width.%]="(Pokemon.stats[5].base_stat / 160) * 100"
+              ></div>
+            </div>
+            <span class="stat-val">{{ Pokemon.stats[5].base_stat }}</span>
+          </div>
+        </div>
+        <div class="stat-bar-bg">
+          <div class="stat-bar bar-hp" style="width: 22%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+}

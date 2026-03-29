@@ -1,0 +1,56 @@
+<title>Pokémon Login</title>
+
+<body>
+  <app-particulas />
+
+  <div class="page-wrapper">
+    <div class="pikachu-wrap" id="pikachu">
+      <img ngSrc="images/pokemon.png" alt="Pikachu" width="1600" height="1403" priority />
+    </div>
+
+    <div class="card" id="card">
+      <div class="header">
+        <div class="header-title">
+          <div class="pokeball-sm"></div>
+          <h1>POKÉMON</h1>
+          <div class="pokeball-sm"></div>
+        </div>
+        <p>Inicia sesión, Entrenador</p>
+      </div>
+
+      <form [formGroup]="Form" id="loginForm" (ngSubmit)="OnSubmit()">
+        <label for="nombre">Nombre</label>
+        <input formControlName="nombre" placeholder="Pablo" autocomplete="off" />
+
+        <label for="password"> Password </label>
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="••••••••"
+          autocomplete="off"
+        />
+
+        @if (hayError) {
+          <div class="field-error visible">
+            <div class="err-ball"></div>
+            <span>Nombre o contraseña incorrectos</span>
+          </div>
+        }
+
+        <button>
+          <div class="btn-shine"></div>
+          <div class="btn-ball"></div>
+          Entrar
+        </button>
+      </form>
+
+      <div class="footer">¿No tienes cuenta? <a href="#">Regístrate</a></div>
+      <div class="bottom-dots">
+        <div class="bdot bdot-r"></div>
+        <div class="bdot bdot-y"></div>
+        <div class="bdot bdot-b"></div>
+        <div class="bdot bdot-dr"></div>
+      </div>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,46 @@
+<div class="section-header">
+  <div class="section-title">🔍 BUSCAR POKÉMON</div>
+  <div class="section-sub">Escribe el nombre de un Pokémon para buscarlo</div>
+</div>
+
+<div class="search-wrap">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <input
+      class="search-input"
+      name="searchQuery"
+      formControlName="query"
+      placeholder="ej: pikachu, charizard, mewtwo..."
+    />
+    <button class="btn-search">🔍 Buscar</button>
+  </form>
+</div>
+
+@if (estados === Estados.Vacio) {
+  <div class="search-result">
+    <div class="empty-state">
+      <div class="empty-icon">🔍</div>
+      <div class="empty-text">ESCRIBE UN NOMBRE<br />Y PRESIONA BUSCAR</div>
+    </div>
+  </div>
+}
+
+@if (estados === Estados.Cargando) {
+  <div class="search-result">
+    <app-skeleton-searching />
+  </div>
+}
+
+@if (estados === Estados.Listo) {
+  <div class="search-result">
+    <app-pokem-card [Pokemon]="Pokemon" />
+  </div>
+}
+
+@if (estados === Estados.NoEncontrado) {
+  <div class="search-result">
+    <div class="not-found">
+      <div class="nf-icon">😵</div>
+      <p>¡POKÉMON NO<br />ENCONTRADO!</p>
+    </div>
+  </div>
+}
