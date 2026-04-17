@@ -91,3 +91,10 @@ ng serve
 ```bash
 ng build --configuration production
 ```
+
+## 🐳 Ejecución con Docker
+
+```bash
+docker build -t pokedex-app .
+docker run -p 8080:80 pokedex-app
+
